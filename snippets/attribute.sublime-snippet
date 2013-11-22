@@ -1,0 +1,10 @@
+<snippet>
+    <tabTrigger>attribute</tabTrigger>
+    <content><![CDATA[
+{
+    name: "${1:limit}",
+    value: "${2:10}"
+}
+]]></content>
+    <scope>source.js source.js.nsoa</scope>
+</snippet>

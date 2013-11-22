@@ -1,0 +1,13 @@
+<snippet>
+    <tabTrigger>readRequest</tabTrigger>
+    <content><![CDATA[
+{
+    type: "${1}",
+    method: "${2:equal to}",
+    fields: "${3}",
+    attributes: [${4}],
+    objects: [${5}]
+}
+]]></content>
+    <scope>source.js source.js.nsoa</scope>
+</snippet>

@@ -1,0 +1,460 @@
+{
+  "scope": "source.js source.js.nsoa",
+
+  "completions":
+  [
+    // context functions
+    {
+        "trigger": "NSOA.context.remainingUnits",
+        "contents": "NSOA.context.remainingUnits()"
+    },
+
+    // form functions
+    {
+        "trigger": "NSOA.form.error",
+        "contents": "NSOA.form.error('${1:@field}', '${2:@errorMessage}')"
+    },
+    {
+        "trigger": "NSOA.form.getAllValues",
+        "contents": "NSOA.form.getAllValues()"
+    },
+    {
+        "trigger": "NSOA.form.getLabel",
+        "contents": "NSOA.form.getLabel('${1:@field}')"
+    },
+    {
+        "trigger": "NSOA.form.getValue",
+        "contents": "NSOA.form.getValue('${1:@field}')"
+    },
+    {
+        "trigger": "NSOA.form.getOldRecord",
+        "contents": "NSOA.form.getOldRecord()"
+    },
+    {
+        "trigger": "NSOA.form.getNewRecord",
+        "contents": "NSOA.form.getNewRecord()"
+    },
+
+    // meta functions
+    {
+        "trigger": "NSOA.meta.alert",
+        "contents": "NSOA.meta.alert('${1:@message}')"
+    },
+    {
+        "trigger": "NSOA.meta.log",
+        "contents": "NSOA.meta.log('${1:@severity}', '${2:@message}')"
+    },
+
+    // record functions w/ complex types
+    {
+        "trigger": "NSOA.record.oaAddress",
+        "contents": "NSOA.record.oaAddress(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaAgreement",
+        "contents": "NSOA.record.oaAgreement(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaApproval",
+        "contents": "NSOA.record.oaApproval(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaBooking",
+        "contents": "NSOA.record.oaBooking(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaBookingType",
+        "contents": "NSOA.record.oaBookingType(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaBudget",
+        "contents": "NSOA.record.oaBudget(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaBudgetAllocation",
+        "contents": "NSOA.record.oaBudgetAllocation(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaCategory",
+        "contents": "NSOA.record.oaCategory(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaCcrate",
+        "contents": "NSOA.record.oaCcrate(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaCompany",
+        "contents": "NSOA.record.oaCompany(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaContact",
+        "contents": "NSOA.record.oaContact(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaCostcenter",
+        "contents": "NSOA.record.oaCostcenter(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaCurrency",
+        "contents": "NSOA.record.oaCurrency(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaCurrencyrate",
+        "contents": "NSOA.record.oaCurrencyrate(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaCustField",
+        "contents": "NSOA.record.oaCustField(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaCustomer",
+        "contents": "NSOA.record.oaCustomer(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaCustomerpo",
+        "contents": "NSOA.record.oaCustomerpo(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaCustomerpo_to_project",
+        "contents": "NSOA.record.oaCustomerpo_to_project(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaCustomField",
+        "contents": "NSOA.record.oaCustomField(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaDate",
+        "contents": "NSOA.record.oaDate(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaDeal",
+        "contents": "NSOA.record.oaDeal(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaDealcontact",
+        "contents": "NSOA.record.oaDealcontact(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaDealschedule",
+        "contents": "NSOA.record.oaDealschedule(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaDepartment",
+        "contents": "NSOA.record.oaDepartment(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaEntitytag",
+        "contents": "NSOA.record.oaEntitytag(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaEnvelope",
+        "contents": "NSOA.record.oaEnvelope(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaError",
+        "contents": "NSOA.record.oaError(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaEstimate",
+        "contents": "NSOA.record.oaEstimate(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaEstimateadjustment",
+        "contents": "NSOA.record.oaEstimateadjustment(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaEstimateexpense",
+        "contents": "NSOA.record.oaEstimateexpense(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaEstimatelabor",
+        "contents": "NSOA.record.oaEstimatelabor(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaEstimatemarkup",
+        "contents": "NSOA.record.oaEstimatemarkup(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaEstimatephase",
+        "contents": "NSOA.record.oaEstimatephase(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaEvent",
+        "contents": "NSOA.record.oaEvent(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaHierarchy",
+        "contents": "NSOA.record.oaHierarchy(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaHierarchyNode",
+        "contents": "NSOA.record.oaHierarchyNode(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaHistory",
+        "contents": "NSOA.record.oaHistory(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaImportExport",
+        "contents": "NSOA.record.oaImportExport(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaInvoice",
+        "contents": "NSOA.record.oaInvoice(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaItem",
+        "contents": "NSOA.record.oaItem(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaJobcode",
+        "contents": "NSOA.record.oaJobcode(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaLeave__rule",
+        "contents": "NSOA.record.oaLeave__rule(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaLeave_accrual_rule_to_user",
+        "contents": "NSOA.record.oaLeave_accrual_rule_to_user(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaLeave_accrual_transaction",
+        "contents": "NSOA.record.oaLeave_accrual_transaction(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaLoadedCost",
+        "contents": "NSOA.record.oaLoadedCost(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaModule",
+        "contents": "NSOA.record.oaModule(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaPayment",
+        "contents": "NSOA.record.oaPayment(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaPaymentterms",
+        "contents": "NSOA.record.oaPaymentterms(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaPaymenttype",
+        "contents": "NSOA.record.oaPaymenttype(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaPayrolltype",
+        "contents": "NSOA.record.oaPayrolltype(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaPreference",
+        "contents": "NSOA.record.oaPreference(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaProduct",
+        "contents": "NSOA.record.oaProduct(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaProject",
+        "contents": "NSOA.record.oaProject(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaProjectbillingrule",
+        "contents": "NSOA.record.oaProjectbillingrule(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaProjectbillingtransaction",
+        "contents": "NSOA.record.oaProjectbillingtransaction(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaProjectlocation",
+        "contents": "NSOA.record.oaProjectlocation(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaProjectstage",
+        "contents": "NSOA.record.oaProjectstage(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaProjecttask",
+        "contents": "NSOA.record.oaProjecttask(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaProjecttask_type",
+        "contents": "NSOA.record.oaProjecttask_type(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaProjecttaskassign",
+        "contents": "NSOA.record.oaProjecttaskassign(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaProposal",
+        "contents": "NSOA.record.oaProposal(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaProposalblock",
+        "contents": "NSOA.record.oaProposalblock(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaPurchase_item",
+        "contents": "NSOA.record.oaPurchase_item(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaPurchaseorder",
+        "contents": "NSOA.record.oaPurchaseorder(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaPurchaser",
+        "contents": "NSOA.record.oaPurchaser(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaPurchaserequest",
+        "contents": "NSOA.record.oaPurchaserequest(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaRatecard",
+        "contents": "NSOA.record.oaRatecard(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaReimbursement",
+        "contents": "NSOA.record.oaReimbursement(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaRequest_item",
+        "contents": "NSOA.record.oaRequest_item(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaResourceprofile",
+        "contents": "NSOA.record.oaResourceprofile(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaResourceprofile_type",
+        "contents": "NSOA.record.oaResourceprofile_type(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaRevenue_recognition_rule",
+        "contents": "NSOA.record.oaRevenue_recognition_rule(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaRevenue_recognition_rule_amount",
+        "contents": "NSOA.record.oaRevenue_recognition_rule_amount(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaRevenue_recognition_transaction",
+        "contents": "NSOA.record.oaRevenue_recognition_transaction(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaSchedulerequest",
+        "contents": "NSOA.record.oaSchedulerequest(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaSchedulerequest_item",
+        "contents": "NSOA.record.oaSchedulerequest_item(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaSlip",
+        "contents": "NSOA.record.oaSlip(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaSlipstage",
+        "contents": "NSOA.record.oaSlipstage(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaSwitch",
+        "contents": "NSOA.record.oaSwitch(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaTask",
+        "contents": "NSOA.record.oaTask(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaTaskTimecard",
+        "contents": "NSOA.record.oaTaskTimecard(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaTaxLocation",
+        "contents": "NSOA.record.oaTaxLocation(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaTaxRate",
+        "contents": "NSOA.record.oaTaxRate(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaTerm",
+        "contents": "NSOA.record.oaTerm(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaTicket",
+        "contents": "NSOA.record.oaTicket(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaTimecard",
+        "contents": "NSOA.record.oaTimecard(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaTimesheet",
+        "contents": "NSOA.record.oaTimesheet(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaTimetype",
+        "contents": "NSOA.record.oaTimetype(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaTodo",
+        "contents": "NSOA.record.oaTodo(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaUprate",
+        "contents": "NSOA.record.oaUprate(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaUser",
+        "contents": "NSOA.record.oaUser(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaUserWorkschedule",
+        "contents": "NSOA.record.oaUserWorkschedule(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaVendor",
+        "contents": "NSOA.record.oaVendor(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaWorkspacelink",
+        "contents": "NSOA.record.oaWorkspacelink(${1:@id})"
+    },
+    {
+        "trigger": "NSOA.record.oaWorkspaceuser",
+        "contents": "NSOA.record.oaWorkspaceuser(${1:@id})"
+    },
+
+    // wsapi functions
+    {
+        "trigger": "NSOA.wsapi.add",
+        "contents": "NSOA.wsapi.add([${1:@objects}])"
+    },
+    {
+        "trigger": "NSOA.wsapi.delete",
+        "contents": "NSOA.wsapi.delete([${1:@objects}])"
+    },
+    {
+        "trigger": "NSOA.wsapi.disableFilterSet",
+        "contents": "NSOA.wsapi.disableFilterSet([${1:true}])"
+    },
+    {
+        "trigger": "NSOA.wsapi.modify",
+        "contents": "NSOA.wsapi.modify([${1:@attributes}], [${2:@objects}])"
+    },
+    {
+        "trigger": "NSOA.wsapi.read",
+        "contents": "NSOA.wsapi.read($0)"
+    },
+    {
+        "trigger": "NSOA.wsapi.upsert",
+        "contents": "NSOA.wsapi.upsert([${1:@attributes}], [${2:@objects}])"
+    },
+    {
+        "trigger": "NSOA.wsapi.whoami",
+        "contents": "NSOA.wsapi.whoami()"
+    }
+  ]
+}
