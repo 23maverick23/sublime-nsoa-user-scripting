@@ -7,7 +7,6 @@
 	<key>fileTypes</key>
 	<array>
 		<string>js</string>
-		<string>js-nsoa</string>
 	</array>
 	<key>firstLineMatch</key>
 	<string>^#!/usr/bin/env node</string>
@@ -368,25 +367,6 @@
 			<string>meta.function.json.js</string>
 		</dict>
 		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.operator.new.js</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>entity.name.type.instance.js</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>(new)\s+(\w+(?:\.\w*)?)</string>
-			<key>name</key>
-			<string>meta.class.instance.constructor</string>
-		</dict>
-		<dict>
 			<key>match</key>
 			<string>\b(console)\b</string>
 			<key>name</key>
@@ -605,7 +585,7 @@
 			<key>comment</key>
 			<string>match specific NSOA functions</string>
 			<key>match</key>
-			<string>(NSOA\.(context|form|meta|record|wsapi)\.(error|get(AllValues|(New|Old)Record|Value|_value)|a(lert|dd)|re(mainingUnits|ad)|log|d(elete|isableFilterSet)|modify|upsert|whoami|oa(\w*)))\b(?=\()</string>
+			<string>\b(NSOA\.(context|form|meta|record|wsapi)\.(error|get(AllValues|(New|Old)Record|Value|_value)|a(lert|dd)|re(mainingUnits|ad)|log|d(elete|isableFilterSet)|modify|upsert|whoami|oa(\w*)))\b(?=\()</string>
 			<key>name</key>
 			<string>support.function.js</string>
 		</dict>

@@ -14,12 +14,12 @@ Ryan Morrissey - [ryancmorrissey.com](http://ryancmorrissey.com)
 See [LICENSE.md](LICENSE.md)
 
 ## INSTALLATION
-For _Sublime Text_, you can install directly from git, or manually download the `NSOA-user-script.sublime-package` file from the repo and add it to your `Installed Packages` folder within _Sublime Text_.
+For _Sublime Text_, you can install directly from git, or manually download the `NSOA-User-Scripting.sublime-package` file from the repo and add it to your `Installed Packages` folder within _Sublime Text_.
 
 ```bash
 # For Sublime Text on Mac/OSX
 cd ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/Installed\ Packages
-git clone https://rmorrissey23@bitbucket.org/rmorrissey23/NSOA-user-script.git XML-SRP
+git clone https://rmorrissey23@bitbucket.org/rmorrissey23/nsoa-user-scripting.git
 
 ```
 

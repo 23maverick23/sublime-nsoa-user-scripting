@@ -1,0 +1,16 @@
+<snippet>
+    <tabTrigger>function</tabTrigger>
+    <content><![CDATA[
+function ${1:mixedCase}(type) {
+    try {
+        // start of function
+        $0
+
+    } catch(e) {
+        NSOA.meta.log('error', 'Try/catch error: ' + e);
+    }
+}
+]]></content>
+    <description>Add a function template</description>
+    <scope>source.js</scope>
+</snippet>

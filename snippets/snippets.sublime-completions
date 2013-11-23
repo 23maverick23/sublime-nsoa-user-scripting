@@ -1,47 +1,47 @@
 {
-  "scope": "source.js source.js.nsoa",
+  "scope": "source.js",
 
   "completions":
   [
     // context functions
     {
-        "trigger": "NSOA.context.remainingUnits",
+        "trigger": "remainingUnits",
         "contents": "NSOA.context.remainingUnits()"
     },
 
     // form functions
     {
-        "trigger": "NSOA.form.error",
+        "trigger": "error",
         "contents": "NSOA.form.error('${1:@field}', '${2:@errorMessage}')"
     },
     {
-        "trigger": "NSOA.form.getAllValues",
+        "trigger": "getAllValues",
         "contents": "NSOA.form.getAllValues()"
     },
     {
-        "trigger": "NSOA.form.getLabel",
+        "trigger": "getLabel",
         "contents": "NSOA.form.getLabel('${1:@field}')"
     },
     {
-        "trigger": "NSOA.form.getValue",
+        "trigger": "getValue",
         "contents": "NSOA.form.getValue('${1:@field}')"
     },
     {
-        "trigger": "NSOA.form.getOldRecord",
+        "trigger": "getOldRecord",
         "contents": "NSOA.form.getOldRecord()"
     },
     {
-        "trigger": "NSOA.form.getNewRecord",
+        "trigger": "getNewRecord",
         "contents": "NSOA.form.getNewRecord()"
     },
 
     // meta functions
     {
-        "trigger": "NSOA.meta.alert",
+        "trigger": "alert",
         "contents": "NSOA.meta.alert('${1:@message}')"
     },
     {
-        "trigger": "NSOA.meta.log",
+        "trigger": "log",
         "contents": "NSOA.meta.log('${1:@severity}', '${2:@message}')"
     },
 
