@@ -1,0 +1,28 @@
+<snippet>
+    <tabTrigger>scriptheader</tabTrigger>
+    <content><![CDATA[
+/**
+ * Copyright NetSuite, Inc. 2013 All rights reserved.
+ * The following code is a demo prototype. Due to time constraints of a demo,
+ * the code may contain bugs, may not accurately reflect user requirements
+ * and may not be the best approach. Actual implementation should not reuse
+ * this code without due verification.
+ *
+ * ${2:Short description of script file}
+ *
+ * Version    Date            Author           Remarks
+ * 1.00       ${1:@date }     Ryan Morrissey
+ *
+ */
+
+// GLOBAL VARIABLES
+$3
+
+
+// ${4:function description}
+$0
+
+]]></content>
+    <description>Add script header text</description>
+    <scope>source.js</scope>
+</snippet>
