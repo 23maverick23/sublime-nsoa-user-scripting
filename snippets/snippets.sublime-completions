@@ -8,6 +8,10 @@
         "trigger": "remainingUnits",
         "contents": "NSOA.context.remainingUnits()"
     },
+    {
+        "trigger": "isTestMode",
+        "contents": "NSOA.context.isTestMode()"
+    },
 
     // form functions
     {

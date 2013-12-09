@@ -11,6 +11,6 @@ function ${1:mixedCase}(type) {
     }
 }
 ]]></content>
-    <description>Add a function template</description>
+    <description>NSOA: Add a function template</description>
     <scope>source.js</scope>
 </snippet>
