@@ -84,7 +84,7 @@
     },
     {
         "trigger": "disableFilterSet",
-        "contents": "NSOA.wsapi.disableFilterSet([${1:true}])"
+        "contents": "NSOA.wsapi.disableFilterSet(${1:true})"
     },
     {
         "trigger": "modify",
