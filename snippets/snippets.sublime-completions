@@ -257,6 +257,34 @@
         "contents": "NSOA.record.oaInvoice(${1:@id})"
     },
     {
+        "trigger": "oaInvoiceLayout",
+        "contents": "NSOA.record.oaInvoiceLayout(${1:@id})"
+    },
+    {
+        "trigger": "oaIssue",
+        "contents": "NSOA.record.oaIssue(${1:@id})"
+    },
+    {
+        "trigger": "oaIssueCategory",
+        "contents": "NSOA.record.oaIssueCategory(${1:@id})"
+    },
+    {
+        "trigger": "oaIssueSeverity",
+        "contents": "NSOA.record.oaIssueSeverity(${1:@id})"
+    },
+    {
+        "trigger": "oaIssueSource",
+        "contents": "NSOA.record.oaIssueSource(${1:@id})"
+    },
+    {
+        "trigger": "oaIssueStage",
+        "contents": "NSOA.record.oaIssueStage(${1:@id})"
+    },
+    {
+        "trigger": "oaIssueStatus",
+        "contents": "NSOA.record.oaIssueStatus(${1:@id})"
+    },
+    {
         "trigger": "oaItem",
         "contents": "NSOA.record.oaItem(${1:@id})"
     },
