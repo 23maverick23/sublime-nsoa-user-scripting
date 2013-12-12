@@ -374,7 +374,6 @@
         },
         {
             "match": "\\b(NSOA\\.(context|form|meta|record|wsapi)\\.(error|get(AllValues|(New|Old)Record|Value|_value)|a(lert|dd)|re(mainingUnits|ad)|log|d(elete|isableFilterSet)|modify|upsert|whoami|isTestMode|oa(\\w*)))\\b(?=\\()",
-            "comment": "match specific NSOA functions",
             "name": "support.function.js"
         },
         {
