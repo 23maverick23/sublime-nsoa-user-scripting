@@ -6,6 +6,6 @@
     value: "${2:10}"
 }
 ]]></content>
-    <description>Add an attribute object</description>
+    <description>NSOA: Add an attribute object</description>
     <scope>source.js</scope>
 </snippet>

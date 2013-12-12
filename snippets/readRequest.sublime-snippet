@@ -9,6 +9,6 @@
     objects: [${5}]
 }
 ]]></content>
-    <description>Add a readRequest object</description>
+    <description>NSOA: Add a readRequest object</description>
     <scope>source.js</scope>
 </snippet>

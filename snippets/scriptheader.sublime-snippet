@@ -15,14 +15,10 @@
  *
  */
 
-// GLOBAL VARIABLES
-$3
 
-
-// ${4:function description}
 $0
 
 ]]></content>
-    <description>Add script header text</description>
+    <description>NSOA: Add script header text</description>
     <scope>source.js</scope>
 </snippet>
