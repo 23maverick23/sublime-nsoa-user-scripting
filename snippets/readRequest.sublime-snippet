@@ -10,5 +10,5 @@
 }
 ]]></content>
     <description>NSOA: Add a readRequest object</description>
-    <scope>source.js</scope>
+    <scope>source.js.nsoa</scope>
 </snippet>

@@ -1,7 +1,7 @@
 <snippet>
     <tabTrigger>function</tabTrigger>
     <content><![CDATA[
-function ${1:mixedCase}(type) {
+function ${1:camelCase}(type) {
     try {
         // start of function
         $0
@@ -12,5 +12,5 @@ function ${1:mixedCase}(type) {
 }
 ]]></content>
     <description>NSOA: Add a function template</description>
-    <scope>source.js</scope>
+    <scope>source.js.nsoa</scope>
 </snippet>

@@ -1,5 +1,5 @@
 {
-  "scope": "source.js",
+  "scope": "source.js.nsoa",
 
   "completions":
   [
@@ -101,6 +101,10 @@
     {
         "trigger": "whoami",
         "contents": "NSOA.wsapi.whoami()"
+    },
+    {
+        "trigger": "enableLog",
+        "contents": "NSOA.wsapi.enableLog(${1:true})"
     },
 
     // record functions w/ complex types

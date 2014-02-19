@@ -7,5 +7,5 @@
 }
 ]]></content>
     <description>NSOA: Add an attribute object</description>
-    <scope>source.js</scope>
+    <scope>source.js.nsoa</scope>
 </snippet>

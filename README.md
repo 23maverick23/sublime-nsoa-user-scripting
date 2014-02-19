@@ -24,4 +24,4 @@ git clone https://rmorrissey23@bitbucket.org/rmorrissey23/nsoa-user-scripting.gi
 ```
 
 ## HISTORY
-Current Version: 1.0
+Current Version: 1.1
