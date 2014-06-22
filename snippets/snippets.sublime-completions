@@ -109,6 +109,10 @@
 
     // record functions w/ complex types
     {
+        "trigger": "oaActualcost",
+        "contents": "NSOA.record.oaActualcost(${1:@id})"
+    },
+    {
         "trigger": "oaAddress",
         "contents": "NSOA.record.oaAddress(${1:@id})"
     },
@@ -117,12 +121,36 @@
         "contents": "NSOA.record.oaAgreement(${1:@id})"
     },
     {
+        "trigger": "oaAgreement_to_project",
+        "contents": "NSOA.record.oaAgreement_to_project(${1:@id})"
+    },
+    {
         "trigger": "oaApproval",
         "contents": "NSOA.record.oaApproval(${1:@id})"
     },
     {
+        "trigger": "oaApprovalprocess",
+        "contents": "NSOA.record.oaApprovalprocess(${1:@id})"
+    },
+    {
+        "trigger": "oaAttachment",
+        "contents": "NSOA.record.oaAttachment(${1:@id})"
+    },
+    {
+        "trigger": "oaAttribute",
+        "contents": "NSOA.record.oaAttribute(${1:@id})"
+    },
+    {
+        "trigger": "oaAttributeset",
+        "contents": "NSOA.record.oaAttributeset(${1:@id})"
+    },
+    {
         "trigger": "oaBooking",
         "contents": "NSOA.record.oaBooking(${1:@id})"
+    },
+    {
+        "trigger": "oaBookingByDay",
+        "contents": "NSOA.record.oaBookingByDay(${1:@id})"
     },
     {
         "trigger": "oaBookingType",
@@ -141,6 +169,26 @@
         "contents": "NSOA.record.oaCategory(${1:@id})"
     },
     {
+        "trigger": "oaCategory_1",
+        "contents": "NSOA.record.oaCategory_1(${1:@id})"
+    },
+    {
+        "trigger": "oaCategory_2",
+        "contents": "NSOA.record.oaCategory_2(${1:@id})"
+    },
+    {
+        "trigger": "oaCategory_3",
+        "contents": "NSOA.record.oaCategory_3(${1:@id})"
+    },
+    {
+        "trigger": "oaCategory_4",
+        "contents": "NSOA.record.oaCategory_4(${1:@id})"
+    },
+    {
+        "trigger": "oaCategory_5",
+        "contents": "NSOA.record.oaCategory_5(${1:@id})"
+    },
+    {
         "trigger": "oaCcrate",
         "contents": "NSOA.record.oaCcrate(${1:@id})"
     },
@@ -153,8 +201,16 @@
         "contents": "NSOA.record.oaContact(${1:@id})"
     },
     {
+        "trigger": "oaCostcategory",
+        "contents": "NSOA.record.oaCostcategory(${1:@id})"
+    },
+    {
         "trigger": "oaCostcenter",
         "contents": "NSOA.record.oaCostcenter(${1:@id})"
+    },
+    {
+        "trigger": "oaCosttype",
+        "contents": "NSOA.record.oaCosttype(${1:@id})"
     },
     {
         "trigger": "oaCurrency",
@@ -181,8 +237,8 @@
         "contents": "NSOA.record.oaCustomerpo_to_project(${1:@id})"
     },
     {
-        "trigger": "oaCustomField",
-        "contents": "NSOA.record.oaCustomField(${1:@id})"
+        "trigger": "oaCustomerProspect",
+        "contents": "NSOA.record.oaCustomerProspect(${1:@id})"
     },
     {
         "trigger": "oaDate",
@@ -245,6 +301,30 @@
         "contents": "NSOA.record.oaEvent(${1:@id})"
     },
     {
+        "trigger": "oaFilter",
+        "contents": "NSOA.record.oaFilter(${1:@id})"
+    },
+    {
+        "trigger": "oaFilterset",
+        "contents": "NSOA.record.oaFilterset(${1:@id})"
+    },
+    {
+        "trigger": "oaFlag",
+        "contents": "NSOA.record.oaFlag(${1:@id})"
+    },
+    {
+        "trigger": "oaForexInput",
+        "contents": "NSOA.record.oaForexInput(${1:@id})"
+    },
+    {
+        "trigger": "oaFormPermissionField",
+        "contents": "NSOA.record.oaFormPermissionField(${1:@id})"
+    },
+    {
+        "trigger": "oaFulfillment",
+        "contents": "NSOA.record.oaFulfillment(${1:@id})"
+    },
+    {
         "trigger": "oaHierarchy",
         "contents": "NSOA.record.oaHierarchy(${1:@id})"
     },
@@ -301,8 +381,8 @@
         "contents": "NSOA.record.oaJobcode(${1:@id})"
     },
     {
-        "trigger": "oaLeave__rule",
-        "contents": "NSOA.record.oaLeave__rule(${1:@id})"
+        "trigger": "oaLeave_accrual_rule",
+        "contents": "NSOA.record.oaLeave_accrual_rule(${1:@id})"
     },
     {
         "trigger": "oaLeave_accrual_rule_to_user",
@@ -317,8 +397,16 @@
         "contents": "NSOA.record.oaLoadedCost(${1:@id})"
     },
     {
+        "trigger": "oaLogin",
+        "contents": "NSOA.record.oaLogin(${1:@id})"
+    },
+    {
         "trigger": "oaModule",
         "contents": "NSOA.record.oaModule(${1:@id})"
+    },
+    {
+        "trigger": "oaNotes",
+        "contents": "NSOA.record.oaNotes(${1:@id})"
     },
     {
         "trigger": "oaPayment",
@@ -349,12 +437,20 @@
         "contents": "NSOA.record.oaProject(${1:@id})"
     },
     {
+        "trigger": "oaProjectassign",
+        "contents": "NSOA.record.oaProjectassign(${1:@id})"
+    },
+    {
         "trigger": "oaProjectbillingrule",
         "contents": "NSOA.record.oaProjectbillingrule(${1:@id})"
     },
     {
         "trigger": "oaProjectbillingtransaction",
         "contents": "NSOA.record.oaProjectbillingtransaction(${1:@id})"
+    },
+    {
+        "trigger": "oaProjectgroup",
+        "contents": "NSOA.record.oaProjectgroup(${1:@id})"
     },
     {
         "trigger": "oaProjectlocation",
@@ -405,8 +501,20 @@
         "contents": "NSOA.record.oaRatecard(${1:@id})"
     },
     {
+        "trigger": "oaRateCardItem",
+        "contents": "NSOA.record.oaRateCardItem(${1:@id})"
+    },
+    {
         "trigger": "oaReimbursement",
         "contents": "NSOA.record.oaReimbursement(${1:@id})"
+    },
+    {
+        "trigger": "oaRepeat",
+        "contents": "NSOA.record.oaRepeat(${1:@id})"
+    },
+    {
+        "trigger": "oaReport",
+        "contents": "NSOA.record.oaReport(${1:@id})"
     },
     {
         "trigger": "oaRequest_item",
@@ -433,6 +541,22 @@
         "contents": "NSOA.record.oaRevenue_recognition_transaction(${1:@id})"
     },
     {
+        "trigger": "oaRevenueStage",
+        "contents": "NSOA.record.oaRevenueStage(${1:@id})"
+    },
+    {
+        "trigger": "oaRole",
+        "contents": "NSOA.record.oaRole(${1:@id})"
+    },
+    {
+        "trigger": "oaSchedulebyday",
+        "contents": "NSOA.record.oaSchedulebyday(${1:@id})"
+    },
+    {
+        "trigger": "oaScheduleexception",
+        "contents": "NSOA.record.oaScheduleexception(${1:@id})"
+    },
+    {
         "trigger": "oaSchedulerequest",
         "contents": "NSOA.record.oaSchedulerequest(${1:@id})"
     },
@@ -445,12 +569,28 @@
         "contents": "NSOA.record.oaSlip(${1:@id})"
     },
     {
+        "trigger": "oaSlipProjection",
+        "contents": "NSOA.record.oaSlipProjection(${1:@id})"
+    },
+    {
         "trigger": "oaSlipstage",
         "contents": "NSOA.record.oaSlipstage(${1:@id})"
     },
     {
         "trigger": "oaSwitch",
         "contents": "NSOA.record.oaSwitch(${1:@id})"
+    },
+    {
+        "trigger": "oaTagGroup",
+        "contents": "NSOA.record.oaTagGroup(${1:@id})"
+    },
+    {
+        "trigger": "oaTagGroupAttribute",
+        "contents": "NSOA.record.oaTagGroupAttribute(${1:@id})"
+    },
+    {
+        "trigger": "oaTargetUtilization",
+        "contents": "NSOA.record.oaTargetUtilization(${1:@id})"
     },
     {
         "trigger": "oaTask",
@@ -507,6 +647,14 @@
     {
         "trigger": "oaVendor",
         "contents": "NSOA.record.oaVendor(${1:@id})"
+    },
+    {
+        "trigger": "oaViewfilter",
+        "contents": "NSOA.record.oaViewfilter(${1:@id})"
+    },
+    {
+        "trigger": "oaViewfilterrule",
+        "contents": "NSOA.record.oaViewfilterrule(${1:@id})"
     },
     {
         "trigger": "oaWorkspacelink",

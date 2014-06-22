@@ -1,0 +1,22 @@
+<snippet>
+    <tabTrigger>readErrorCheck</tabTrigger>
+    <content><![CDATA[
+// use this for generating errors on read results
+function readErrorCheck(readResult) {
+    if (!readResult || !readResult[0]) {
+        NSOA.meta.log('error', 'No read objects returned.');
+        return;
+    } else if (readResult[0].errors !== null && readResult[0].errors.length > 0) {
+        readResult[0].errors.forEach(function(err) {
+            var fullError = err.code + ' - ' + err.comment + ' ' + error.text;
+            NSOA.meta.log('error', 'Error: ' + fullError);
+        });
+        return;
+    } else {
+        return readResult;
+    }
+}
+]]></content>
+    <description>NSOA: Add an error check for read results</description>
+    <scope>source.js.nsoa</scope>
+</snippet>

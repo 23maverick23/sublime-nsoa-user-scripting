@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>comment</key>
+    <string>NSOA User Script</string>
+    <key>fileTypes</key>
+    <array>
+        <string>js</string>
+        <string>nsoa.js</string>
+    </array>
+    <key>firstLineMatch</key>
+    <string>^#!/usr/bin/env node</string>
+    <key>foldingStartMarker</key>
+    <string>^.*\bfunction\s*(\w+\s*)?\([^\)]*\)(\s*\{[^\}]*)?\s*$</string>
+    <key>foldingStopMarker</key>
+    <string>^\s*\}</string>
+    <key>keyEquivalent</key>
+    <string>^~J</string>
+    <key>name</key>
+    <string>JavaScript (NSOA)</string>
+    <key>patterns</key>
+    <array>
+        <dict>
+            <key>match</key>
+            <string>\b(NSOA\.(context|form|meta|record|wsapi)\.(e(nableLog|rror)|get(AllValues|(New|Old)Record|Value|_value)|a(lert|dd)|re(mainingUnits|ad)|log|d(elete|isableFilterSet)|modify|upsert|whoami|isTestMode|oa(\w*)))\b(?=\()</string>
+            <key>name</key>
+            <string>support.function.js.nsoa</string>
+        </dict>
+        <dict>
+            <key>include</key>
+            <string>source.js</string>
+        </dict>
+    </array>
+    <key>scopeName</key>
+    <string>source.js.nsoa</string>
+    <key>uuid</key>
+    <string>93E017CC-6F27-11D9-90EB-000D93589AF6</string>
+</dict>
+</plist>

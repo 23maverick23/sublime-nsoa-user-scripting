@@ -3,7 +3,6 @@
     <content><![CDATA[
 function ${1:camelCase}(type) {
     try {
-        // start of function
         $0
 
     } catch(e) {

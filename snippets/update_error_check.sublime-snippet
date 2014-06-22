@@ -1,0 +1,22 @@
+<snippet>
+    <tabTrigger>updateErrorCheck</tabTrigger>
+    <content><![CDATA[
+// use this for generating error on update results
+function updateErrorCheck(updateResult) {
+    if (!updateResult || !updateResult[0]) {
+        NSOA.meta.log('error', 'No update objects returned.');
+        return;
+    } else if (updateResult[0].errors !== null && updateResult[0].errors.length > 0) {
+        updateResult[0].errors.forEach(function(err) {
+            var fullError = err.code + ' - ' + err.comment + ' ' + error.text;
+            NSOA.meta.log('error', 'Error: ' + fullError);
+        });
+        return;
+    } else {
+        return updateResult;
+    }
+}
+]]></content>
+    <description>NSOA: Add an error check for update results</description>
+    <scope>source.js.nsoa</scope>
+</snippet>
