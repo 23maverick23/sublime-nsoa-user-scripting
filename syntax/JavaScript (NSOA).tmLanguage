@@ -6,6 +6,7 @@
     <string>NSOA User Script</string>
     <key>fileTypes</key>
     <array>
+        <string>js</string>
         <string>nsoa.js</string>
     </array>
     <key>firstLineMatch</key>
@@ -21,14 +22,14 @@
     <key>patterns</key>
     <array>
         <dict>
-            <key>include</key>
-            <string>source.js</string>
-        </dict>
-        <dict>
             <key>match</key>
             <string>\b(NSOA\.(context|form|meta|record|wsapi)\.(e(nableLog|rror)|get(AllValues|(New|Old)Record|Value|_value)|a(lert|dd)|re(mainingUnits|ad)|log|d(elete|isableFilterSet)|modify|upsert|whoami|isTestMode|oa(\w*)))\b(?=\()</string>
             <key>name</key>
             <string>support.function.js.nsoa</string>
+        </dict>
+        <dict>
+            <key>include</key>
+            <string>source.js</string>
         </dict>
     </array>
     <key>scopeName</key>

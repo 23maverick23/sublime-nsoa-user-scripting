@@ -10,11 +10,11 @@
     "name": "JavaScript (NSOA)",
     "patterns": [
         {
-            "include": "source.js"
-        },
-        {
             "match": "\\b(NSOA\\.(context|form|meta|record|wsapi)\\.(e(nableLog|rror)|get(AllValues|(New|Old)Record|Value|_value)|a(lert|dd)|re(mainingUnits|ad)|log|d(elete|isableFilterSet)|modify|upsert|whoami|isTestMode|oa(\\w*)))\\b(?=\\()",
             "name": "support.function.js.nsoa"
+        },
+        {
+            "include": "source.js"
         }
     ],
     "scopeName": "source.js.nsoa",
