@@ -1,6 +1,7 @@
 {
     "comment": "NSOA User Script",
     "fileTypes": [
+        "js",
         "nsoa.js"
     ],
     "firstLineMatch": "^#!/usr/bin/env node",
@@ -9,6 +10,18 @@
     "keyEquivalent": "^~J",
     "name": "JavaScript (NSOA)",
     "patterns": [
+        {
+            "captures": {
+                "1": {
+                    "name": "keyword.operator.new.js.nsoa"
+                },
+                "2": {
+                    "name": "support.function.js.nsoa"
+                }
+            },
+            "match": "(new)\\s+(\\w+(?:\\.\\w*\\.\\w*)?)",
+            "name": "meta.class.instance.constructor.nsoa"
+        },
         {
             "match": "\\b(NSOA\\.(context|form|meta|record|wsapi)\\.(e(nableLog|rror)|get(AllValues|(New|Old)Record|Value|_value)|a(lert|dd)|re(mainingUnits|ad)|log|d(elete|isableFilterSet)|modify|upsert|whoami|isTestMode|oa(\\w*)))\\b(?=\\()",
             "name": "support.function.js.nsoa"

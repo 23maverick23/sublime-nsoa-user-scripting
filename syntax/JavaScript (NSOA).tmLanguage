@@ -22,6 +22,25 @@
     <key>patterns</key>
     <array>
         <dict>
+            <key>captures</key>
+            <dict>
+                <key>1</key>
+                <dict>
+                    <key>name</key>
+                    <string>keyword.operator.new.js.nsoa</string>
+                </dict>
+                <key>2</key>
+                <dict>
+                    <key>name</key>
+                    <string>support.function.js.nsoa</string>
+                </dict>
+            </dict>
+            <key>match</key>
+            <string>(new)\s+(\w+(?:\.\w*\.\w*)?)</string>
+            <key>name</key>
+            <string>meta.class.instance.constructor.nsoa</string>
+        </dict>
+        <dict>
             <key>match</key>
             <string>\b(NSOA\.(context|form|meta|record|wsapi)\.(e(nableLog|rror)|get(AllValues|(New|Old)Record|Value|_value)|a(lert|dd)|re(mainingUnits|ad)|log|d(elete|isableFilterSet)|modify|upsert|whoami|isTestMode|oa(\w*)))\b(?=\()</string>
             <key>name</key>
