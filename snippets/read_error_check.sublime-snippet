@@ -8,7 +8,7 @@ function readErrorCheck(readResult) {
         return;
     } else if (readResult[0].errors !== null && readResult[0].errors.length > 0) {
         readResult[0].errors.forEach(function(err) {
-            var fullError = err.code + ' - ' + err.comment + ' ' + error.text;
+            var fullError = err.code + ' - ' + err.comment + ' ' + err.text;
             NSOA.meta.log('error', 'Error: ' + fullError);
         });
         return;
