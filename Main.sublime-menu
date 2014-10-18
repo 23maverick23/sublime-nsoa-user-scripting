@@ -1,0 +1,98 @@
+[
+    {
+        "caption": "Tools",
+        "id": "tools",
+        "mnemonic": "T",
+        "children":
+        [
+            {
+                "caption": "NSOA",
+                "id": "nsoa-tools",
+                "mnemonic": "N",
+                "children":
+                [
+                    // Commands
+                    {
+                        "caption": "Load generic WSDL",
+                        "command": "nsoa_load_generic_wsdl"
+                    },
+                    {
+                        "caption": "Load account-specific WSDL",
+                        "command": "nsoa_load_account_wsdl"
+                    },
+                    {
+                        "caption": "Remove all WSDL data",
+                        "command": "nsoa_remove_wsdl_data"
+                    },
+
+                    { "caption": "-" },
+
+                    {
+                        "caption": "SOAP API Guide",
+                        "command": "nsoa_open_soap_guide"
+                    },
+                    {
+                        "caption": "User Scripting Guide",
+                        "command": "nsoa_open_scripting_guide"
+                    },
+                    {
+                        "caption": "Quick Reference Card",
+                        "command": "nsoa_open_scripting_reference"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "caption": "Preferences",
+        "mnemonic": "n",
+        "id": "preferences",
+        "children":
+        [
+            {
+                // Include this information in case it is the only package using that menu
+                "caption": "Package Settings",
+                "mnemonic": "P",
+                "id": "package-settings",
+                "children":
+                [
+                    {
+                        "caption": "NSOA",
+                        "id": "nsoa-settings",
+                        "children":
+                        [
+                            // Settings - Default
+                            {
+                                "caption": "Settings – Default",
+                                "command": "open_file",
+                                "args": {
+                                    "file": "${packages}/NSOA/NSOA.sublime-settings"
+                                }
+                            },
+                            // Settings - User
+                            {
+                                "caption": "Settings – User",
+                                "command": "open_file",
+                                "args": {
+                                    "file": "${packages}/User/NSOA.sublime-settings"
+                                }
+                            },
+
+                            { "caption": "-" },
+
+                            // README
+                            {
+                                "caption": "README",
+                                "command": "open_file",
+                                "args": {
+                                    "file": "${packages}/NSOA/README.md"
+                                }
+                            },
+                            { "caption": "-" }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

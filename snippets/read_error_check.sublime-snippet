@@ -17,6 +17,6 @@ function readErrorCheck(readResult) {
     }
 }
 ]]></content>
-    <description>NSOA: Add an error check for read results</description>
+    <description>NSOA: Error check for read results</description>
     <scope>source.js.nsoa</scope>
 </snippet>

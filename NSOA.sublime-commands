@@ -1,0 +1,26 @@
+[
+    {
+        "caption": "NSOA: Load Generic WSDL",
+        "command": "nsoa_load_generic_wsdl"
+    },
+    {
+        "caption": "NSOA: Load Account-Specific WSDL",
+        "command": "nsoa_load_account_wsdl"
+    },
+    {
+        "caption": "NSOA: Open Quick Reference Card",
+        "command": "nsoa_open_scripting_reference"
+    },
+    {
+        "caption": "NSOA: Open SOAP API Guide",
+        "command": "nsoa_open_soap_guide"
+    },
+    {
+        "caption": "NSOA: Open User Scripting Guide",
+        "command": "nsoa_open_scripting_guide"
+    },
+    {
+        "caption": "NSOA: Remove All WSDL Data",
+        "command": "nsoa_remove_wsdl_data"
+    }
+]

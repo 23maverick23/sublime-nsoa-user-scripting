@@ -2,11 +2,11 @@
     <tabTrigger>readRequest</tabTrigger>
     <content><![CDATA[
 {
-    type: "${1}",
-    method: "${2:equal to}",
-    fields: "${3}",
-    attributes: [${4}],
-    objects: [${5}]
+    type       : "${1}",
+    method     : "${2:equal to}",
+    fields     : "${3}",
+    attributes : [${4}],
+    objects    : [${5}]
 }
 ]]></content>
     <description>NSOA: Add a read request object</description>

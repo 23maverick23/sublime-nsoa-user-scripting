@@ -1,0 +1,118 @@
+{
+  "scope": "source.js.nsoa",
+
+  "completions":
+  [
+    // context functions
+    {
+        "trigger": "remainingTime",
+        "contents": "NSOA.context.remainingTime()"
+    },
+    {
+        "trigger": "remainingUnits",
+        "contents": "NSOA.context.remainingUnits()"
+    },
+    {
+        "trigger": "isTestMode",
+        "contents": "NSOA.context.isTestMode()"
+    },
+
+    // form functions
+    {
+        "trigger": "error",
+        "contents": "NSOA.form.error('${1:@field}', '${2:@errorMessage}')"
+    },
+    {
+        "trigger": "getAllValues",
+        "contents": "NSOA.form.getAllValues()"
+    },
+    {
+        "trigger": "getLabel",
+        "contents": "NSOA.form.getLabel('${1:@field}')"
+    },
+    {
+        "trigger": "getValue",
+        "contents": "NSOA.form.getValue('${1:@field}')"
+    },
+    {
+        "trigger": "getOldRecord",
+        "contents": "NSOA.form.getOldRecord()"
+    },
+    {
+        "trigger": "getNewRecord",
+        "contents": "NSOA.form.getNewRecord()"
+    },
+
+    // meta functions
+    {
+        "trigger": "alert",
+        "contents": "NSOA.meta.alert('${1:@message}')"
+    },
+    {
+        "trigger": "log",
+        "contents": "NSOA.meta.log('${1:@severity}', '${2:@message}')"
+    },
+    {
+        "trigger": "log-debug",
+        "contents": "NSOA.meta.log('debug', '${1:@message}')"
+    },
+    {
+        "trigger": "log-error",
+        "contents": "NSOA.meta.log('error', '${1:@message}')"
+    },
+    {
+        "trigger": "log-fatal",
+        "contents": "NSOA.meta.log('fatal', '${1:@message}')"
+    },
+    {
+        "trigger": "log-info",
+        "contents": "NSOA.meta.log('info', '${1:@message}')"
+    },
+    {
+        "trigger": "log-trace",
+        "contents": "NSOA.meta.log('trace', '${1:@message}')"
+    },
+    {
+        "trigger": "log-warning",
+        "contents": "NSOA.meta.log('warning', '${1:@message}')"
+    },
+
+    // wsapi functions
+    {
+        "trigger": "add",
+        "contents": "NSOA.wsapi.add([${1:@objects}])"
+    },
+    {
+        "trigger": "delete",
+        "contents": "NSOA.wsapi.delete([${1:@objects}])"
+    },
+    {
+        "trigger": "disableFilterSet",
+        "contents": "NSOA.wsapi.disableFilterSet(${1:true})"
+    },
+    {
+        "trigger": "modify",
+        "contents": "NSOA.wsapi.modify([${1:@attributes}], [${2:@objects}])"
+    },
+    {
+        "trigger": "read",
+        "contents": "NSOA.wsapi.read(${1:@readRequest})"
+    },
+    {
+        "trigger": "upsert",
+        "contents": "NSOA.wsapi.upsert([${1:@attributes}], [${2:@objects}])"
+    },
+    {
+        "trigger": "whoami",
+        "contents": "NSOA.wsapi.whoami()"
+    },
+    {
+        "trigger": "enableLog",
+        "contents": "NSOA.wsapi.enableLog(${1:true})"
+    },
+    {
+        "trigger": "remainingTime",
+        "contents": "NSOA.wsapi.remainingTime()"
+    }
+  ]
+}

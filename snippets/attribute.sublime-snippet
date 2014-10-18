@@ -3,7 +3,7 @@
     <content><![CDATA[
 {
     name: "${1:limit}",
-    value: "${2:10}"
+    value: "${2:100}"
 }
 ]]></content>
     <description>NSOA: Add an attribute object</description>

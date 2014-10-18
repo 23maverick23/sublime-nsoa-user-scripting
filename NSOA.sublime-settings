@@ -1,0 +1,20 @@
+{
+    /**
+     * Be sure to configure these settings before you attempt
+     * to use this package to ensure that all features are
+     * working appropriately.
+     */
+
+    // This should hold the server you are connecting to.
+    // Valid options are: "production", "sandbox", "demo", "qa"
+    "server": "",
+
+    // This optionally holds the port used to connect to
+    // the above server (e.g. 1443).
+    "port": "",
+
+    // This should hold the account-specific WDSL short URL
+    // which can be found under the Import/Export section
+    // of your OpenAir account.
+    // "account_wsdl_url": ""
+}

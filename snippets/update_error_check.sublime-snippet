@@ -17,6 +17,6 @@ function updateErrorCheck(updateResult) {
     }
 }
 ]]></content>
-    <description>NSOA: Add an error check for update results</description>
+    <description>NSOA: Error check for update results</description>
     <scope>source.js.nsoa</scope>
 </snippet>

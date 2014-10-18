@@ -15,7 +15,7 @@ patterns:
             name: support.function.js.nsoa
     match: (new)\s+(\w+(?:\.\w*\.\w*)?)
     name: meta.class.instance.constructor.nsoa
--   match: \b(NSOA\.(context|form|meta|record|wsapi)\.(e(nableLog|rror)|get(AllValues|(New|Old)Record|Value|_value)|a(lert|dd)|re(mainingUnits|ad)|log|d(elete|isableFilterSet)|modify|upsert|whoami|isTestMode|oa(\w*)))\b(?=\()
+-   match: \b(NSOA\.(context|form|meta|record|wsapi)\.(e(nableLog|rror)|get(AllValues|(New|Old)Record|Value|_value)|a(lert|dd)|re(maining(Units|Time)|ad)|log|d(elete|isableFilterSet)|modify|upsert|whoami|isTestMode|oa(\w*)))\b(?=\()
     name: support.function.js.nsoa
 -   include: source.js
 scopeName: source.js.nsoa
