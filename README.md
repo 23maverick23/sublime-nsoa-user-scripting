@@ -27,17 +27,43 @@ You can install this package using [Package Control](https://sublime.wbond.net/p
 - Windows: `%APPDATA%\Sublime Text 3\Packages`
 - Linux: `~/.config/sublime-text-3/Packages`
 
+### After Installing...
+
+After installing this package, make sure you configure your User settings file. The most important piece of this is to set your `server` and `port` settings, which are used to create the generic WSDL URL. If unset, the package will fall back on the production server WSDL URL _(Note: if you develop on QA or sandbox, this may mean that your WSDL data will not contain the most recent API objects and fields)_.
+
+```json
+{
+    // This should hold the server you are connecting to.
+    // Valid options are: "production", "sandbox", "demo", "qa"
+    "server": "",
+
+    // This optionally holds the port used to connect to
+    // the above server (e.g. 1443).
+    "port": ""
+}
+```
+
 What's Included
 ---------------
 
 ### Screenshots
 
+#### Command Palatte
 ![nsoa_command_palette.png](https://bitbucket.org/rmorrissey23/sublime-nsoa-user-scripting/raw/master/screenshots/nsoa_command_palette.png "sublime-nsoa-user-scripting")
 
-![nsoa_context_menu.png](https://bitbucket.org/rmorrissey23/sublime-nsoa-user-scripting/raw/master/screenshots/nsoa_context_menu.png "sublime-nsoa-user-scripting")
+#### Quick Tour: Basics
+![nsoa_quick_tour_1.gif](https://bitbucket.org/rmorrissey23/sublime-nsoa-user-scripting/raw/master/screenshots/nsoa_quick_tour_1.gif "sublime-nsoa-user-scripting")
+
+#### Quick Tour: Context Menu
+![nsoa_quick_tour_2.gif](https://bitbucket.org/rmorrissey23/sublime-nsoa-user-scripting/raw/master/screenshots/nsoa_quick_tour_2.gif "sublime-nsoa-user-scripting")
+
+#### Quick Tour: Account-Specific WSDL
+![nsoa_quick_tour_3.gif](https://bitbucket.org/rmorrissey23/sublime-nsoa-user-scripting/raw/master/screenshots/nsoa_quick_tour_3.gif "sublime-nsoa-user-scripting")
 
 > Theme: [Centurion](https://sublime.wbond.net/packages/Theme%20-%20Centurion)
+
 > Color Scheme: [Tomorrow Night](https://sublime.wbond.net/packages/Tomorrow%20Color%20Schemes)
+
 > Font: [Source Code Pro](https://github.com/adobe/source-code-pro)
 
 ### Syntaxes
@@ -51,36 +77,41 @@ What's Included
 - NSOA: Open Quick Reference Card
 - NSOA: Open SOAP API Guide
 - NSOA: Open User Scripting Guide
+- NSOA: Open User Settings
 - NSOA: Remove All WSDL Data
 
 ### Completions (Default)
 
-- remainingTime
-- remainingUnits
-- isTestMode
-- error
-- getAllValues
-- getLabel
-- getValue
-- getOldRecord
-- getNewRecord
-- alert
-- log
-- log-debug
-- log-error
-- log-fatal
-- log-info
-- log-trace
-- log-warning
-- add
-- delete
-- disableFilterSet
-- modify
-- read
-- upsert
-- whoami
-- enableLog
-- remainingTime
+- _NSOA.context_
+    + remainingTime
+    + remainingUnits
+    + isTestMode
+- _NSOA.form_
+    + error
+    + getAllValues
+    + getLabel
+    + getValue
+    + getOldRecord
+    + getNewRecord
+- _NSOA.meta_
+    + alert
+    + log
+    + log-debug
+    + log-error
+    + log-fatal
+    + log-info
+    + log-trace
+    + log-warning
+- _NSOA.wsapi_
+    + add
+    + delete
+    + disableFilterSet
+    + modify
+    + read
+    + upsert
+    + whoami
+    + enableLog
+    + remainingTime
 
 ### Snippets
 
@@ -94,7 +125,9 @@ What's Included
 // function
 function ${1:useCamelCase}(type) {
     try {
+
         $0
+
     } catch(e) {
         NSOA.meta.log('error', 'Try/catch error: ' + e);
     }
@@ -162,18 +195,14 @@ function updateErrorCheck(updateResult) {
 License
 -------
 
-[LICENSE](LICENSE)
+[LICENSE](https://bitbucket.org/rmorrissey23/sublime-nsoa-user-scripting/raw/master/LICENSE)
+
+Changelog
+---------
+
+[CHANGELOG](https://bitbucket.org/rmorrissey23/sublime-nsoa-user-scripting/raw/master/CHANGELOG)
 
 Issues
 ------
 
 You can log issues from the menu on the left, or by [clicking here](https://bitbucket.org/rmorrissey23/sublime-nsoa-user-scripting/issues/new).
-
-Contribute
-----------
-
-1. [Fork](https://bitbucket.org/rmorrissey23/sublime-nsoa-user-scripting/fork) this repo.
-2. Create a branch `git checkout -b my_feature`
-3. Commit your changes `git commit -am "Added Feature"`
-4. Push to the branch `git push origin my_feature`
-5. Open a [Pull Request](https://bitbucket.org/rmorrissey23/sublime-nsoa-user-scripting/pull-request/new)

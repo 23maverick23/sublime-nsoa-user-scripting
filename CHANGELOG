@@ -1,0 +1,59 @@
+sublime-nsoa-user-scripting changelog
+=====================================
+
+## v2.0.1 (2014-10-19)
+
+- Fixes issue #4 (bug with packages directory lookup)
+- Fixes issue #5 (bug with context menu refresh)
+- Added "last_updated" user setting for logging
+- Added confirmation dialog for WSDL updates
+- Added "Open User Settings" command
+- Small code formatting changes and cleanup
+
+## v2.0.0 (2014-10-18)
+
+- Added WSDL data generation for generic and account-specific URLs
+- Added main menu and context menu support
+- Added documentation links to PDF guides
+- Added commands to Command Palatte
+
+## v1.2.1 (2014-06-26)
+
+- Small bug fixes
+
+## v1.2.0 (2014-06-21)
+
+- Resolve issue #2
+
+## v1.1.1 (2014-02-20)
+
+- Updated scopes in tmLanguage files
+
+## v1.1.0 (2014-02-19)
+
+- Updating to v1.1
+
+## v1.0.5 (2013-12-12)
+
+- Small bug fix
+
+## v1.0.4 (2013-12-11)
+
+- Small bug fix
+
+## v1.0.3 (2013-12-11)
+
+- Added oaIssue and related complex types
+- Updated syntax highlighting and completions for new function
+
+## v1.0.2 (2013-11-23)
+
+- Updated completions with easier triggers
+
+## v1.0.1 (2013-11-23)
+
+- Small updates
+
+## v1.0.0 (2013-11-22)
+
+- Initial commit

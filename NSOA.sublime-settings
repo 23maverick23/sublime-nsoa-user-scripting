@@ -13,8 +13,14 @@
     // the above server (e.g. 1443).
     "port": "",
 
+    /**
+     *
+     * THE FOLLOWING SETTINGS ARE FOR BETA TESTING ONLY!
+     *
+     */
+
     // This should hold the account-specific WDSL short URL
     // which can be found under the Import/Export section
-    // of your OpenAir account.
-    // "account_wsdl_url": ""
+    // of your account.
+    "account_wsdl_url": ""
 }

@@ -1,6 +1,8 @@
+from datetime import datetime
 import json
 import os
 import re
+import shutil
 import xml.etree.ElementTree as ET
 import webbrowser
 
@@ -35,23 +37,37 @@ class NsoaGenerateWsdlBase(sublime_plugin.WindowCommand):
         Gets the path to the file or folder specified. Expects
         a list of path directories.
 
-        ex// ['NSOA', 'completions', 'wsdl.sublime-completions']
+        ex// ['NSOA', 'completions', 'Wsdl.sublime-completions']
 
         """
         try:
             file_path = os.path.join(*path_list)
+            # location if installed via package manager
+            installed_packages_path = os.path.join(sublime.installed_packages_path(), file_path)
+            # location if added manually to sublime text
             packages_path = os.path.join(sublime.packages_path(), file_path)
 
             if sublime.platform() == 'windows':
+                installed_packages_path = installed_packages_path.replace('\\', '/')
                 packages_path = packages_path.replace('\\', '/')
 
-            if os.path.exists(packages_path):
+            if os.path.exists(installed_packages_path):
+                return installed_packages_path
+            elif os.path.exists(packages_path):
                 return packages_path
             else:
-                sublime.error_message("Unable to find the necessary file at '{0}'.".format(packages_path))
+                sublime.error_message("Unable to find '{0}' in your Sublime packages directory.".format(file_path))
                 return None
         except Exception as e:
             print(e)
+            return None
+
+    def get_context_menu_depth(self, context_dict):
+        """
+        A helper class for managing the context menu depth.
+
+        """
+        return context_dict[1]['children'][5]
 
     def validate_url(self, url):
         """
@@ -101,8 +117,11 @@ class NsoaGenerateWsdlBase(sublime_plugin.WindowCommand):
             sublime_context = json.loads(f.read())
 
         wsdl_json = json.loads(settings.get('wsdl_json'))
-        context_root = sublime_context[1]['children'][3]
         count = 0
+
+        # the last array index should match the 'nsoa-context-wsdl' context item
+        context_root = self.get_context_menu_depth(sublime_context)
+        del context_root['children'][:]
 
         for complexname in wsdl_json:
             context_type = {"caption": "{0}".format(complexname), "children": []}
@@ -122,6 +141,8 @@ class NsoaGenerateWsdlBase(sublime_plugin.WindowCommand):
         with open(context_path, 'w') as f:
             json.dump(sublime_context, f)
 
+        # INFO: This is a workaround to reload the plugin after the context menu is changed.
+        sublime.save_settings('NSOA.sublime-settings')
         sublime.status_message('NSOA: Context menu updated.')
 
     def create_completions_list(self):
@@ -191,13 +212,22 @@ class NsoaGenerateWsdlBase(sublime_plugin.WindowCommand):
                 library[complexname] = fields_sorted
 
         json_data = json.dumps(library, sort_keys=True)
+
         settings = sublime.load_settings('NSOA.sublime-settings')
+        if settings.has('wsdl_url'):
+            settings.erase('wsdl_url')
         settings.set('wsdl_json', json_data)
+
+        d = datetime.utcnow()
+        dt = d.strftime('%A, %d %b %Y at %I:%M:%S %p (UTC)')
+        settings.set('wsdl_last_updated', dt)
+
         sublime.save_settings('NSOA.sublime-settings')
 
-        sublime.status_message('NSOA: Sublime settings updated.')
         self.create_context_menu()
         self.create_completions_list()
+
+        sublime.status_message('NSOA: WSDL data updated on {0}.'.format(dt))
 
     def remove_wsdl(self):
         """
@@ -219,7 +249,8 @@ class NsoaGenerateWsdlBase(sublime_plugin.WindowCommand):
         with open(context_path, 'r') as f:
             sublime_context = json.loads(f.read())
 
-        context_root = sublime_context[1]['children'][3]
+        # the last array index should match the 'nsoa-context-wsdl' context item
+        context_root = self.get_context_menu_depth(sublime_context)
         del context_root['children'][:]
 
         with open(context_path, 'w') as f:
@@ -229,8 +260,11 @@ class NsoaGenerateWsdlBase(sublime_plugin.WindowCommand):
         settings = sublime.load_settings('NSOA.sublime-settings')
         if settings.has('wsdl_json'):
             settings.erase('wsdl_json')
-            sublime.save_settings('NSOA.sublime-settings')
 
+        if settings.has('wsdl_last_updated'):
+            settings.erase('wsdl_last_updated')
+
+        sublime.save_settings('NSOA.sublime-settings')
         sublime.status_message('NSOA: All WSDL data has been removed.')
 
 
@@ -240,7 +274,41 @@ class NsoaLoadGenericWsdl(NsoaGenerateWsdlBase):
 
     """
     def run(self):
-        self.generate_wsdl(DEFAULT_WSDL_URL)
+        settings = sublime.load_settings('NSOA.sublime-settings')
+
+        if settings.has('wsdl_last_updated'):
+            last_updated = settings.get('wsdl_last_updated')
+            dialog_msg = (
+                'You last updated your WSDL data on {0}. '
+                'Are you sure you want to overwrite your existing WSDL data?'.format(last_updated)
+            )
+            btn_text = 'Overwrite WSDL data'
+
+            if sublime.ok_cancel_dialog(dialog_msg, btn_text):
+                self.get_server_url()
+        else:
+            self.get_server_url()
+
+    def get_server_url(self):
+        settings = sublime.load_settings('NSOA.sublime-settings')
+
+        server, port = '', ''
+        if settings.has('server'):
+            server = settings.get('server')
+            # convert the colloquial production server to the correct domain prefix
+            server = 'www' if server == 'production' else server
+
+        if settings.has('port'):
+            port = ':' + settings.get('port')
+
+        if server == 'qa':
+            server_url = 'http://{server}.openair1.com{port}/wsdl.pl?wsdl'.format(server=server, port=port)
+        elif server:
+            server_url = 'http://{server}.openair.com{port}/wsdl.pl?wsdl'.format(server=server, port=port)
+        else:
+            server_url = DEFAULT_WSDL_URL
+
+        self.generate_wsdl(server_url)
 
 
 class NsoaLoadAccountWsdl(NsoaGenerateWsdlBase):
@@ -249,7 +317,20 @@ class NsoaLoadAccountWsdl(NsoaGenerateWsdlBase):
 
     """
     def run(self):
-        self.ask_for_url()
+        settings = sublime.load_settings('NSOA.sublime-settings')
+
+        if settings.has('wsdl_last_updated'):
+            last_updated = settings.get('wsdl_last_updated')
+            dialog_msg = (
+                'You last updated your WSDL data on {0}. '
+                'Are you sure you want to overwrite your existing WSDL data?'.format(last_updated)
+            )
+            btn_text = 'Overwrite WSDL data'
+
+            if sublime.ok_cancel_dialog(dialog_msg, btn_text):
+                self.ask_for_url()
+        else:
+            self.ask_for_url()
 
     def ask_for_url(self):
         self.window.show_input_panel(
@@ -267,13 +348,29 @@ class NsoaRemoveWsdlData(NsoaGenerateWsdlBase):
 
     """
     def run(self):
-        msg = (
+        dialog_msg = (
             'MEASURE TWICE - CUT ONCE!\n\n'
-            'You are about to remove all NetSuite OpenAir WSDL data, '
+            'You are about to remove all stored WSDL data, '
             'including auto-completions and context menu items.'
         )
-        if sublime.ok_cancel_dialog(msg, 'Remove all WSDL data'):
+        btn_text = 'Remove all WSDL data'
+        if sublime.ok_cancel_dialog(dialog_msg, btn_text):
             self.remove_wsdl()
+
+
+class NsoaOpenUserSettings(NsoaGenerateWsdlBase):
+    """
+    A Sublime window command for opening the User/NSOA.sublime-settings file.
+
+    """
+    def run(self):
+        user_settings_path = os.path.join(sublime.packages_path(), 'User', 'NSOA.sublime-settings')
+
+        if not os.path.exists(user_settings_path):
+            settings_path_list = ['NSOA', 'NSOA.sublime-settings']
+            default_settings_path = self.get_package_file_path(settings_path_list)
+            shutil.copy(default_settings_path, user_settings_path)
+        sublime.active_window().open_file(user_settings_path)
 
 
 class NsoaOpenDocumentationBase(sublime_plugin.WindowCommand):
@@ -286,6 +383,7 @@ class NsoaOpenDocumentationBase(sublime_plugin.WindowCommand):
         Opens the given url in a the default web browser.
 
         """
+        sublime.status_message('NSOA: Opening {0}...'.format(url))
         webbrowser.open(url)
 
 
@@ -326,7 +424,7 @@ class NsoaInsertField(sublime_plugin.TextCommand):
             if args['field']:
                 text = args['field']
             else:
-                text = ""
+                text = ''
 
         except Exception as e:
             sublime.error_message('NSOA: {0}: {1}'.format(type(e).__name__, e))

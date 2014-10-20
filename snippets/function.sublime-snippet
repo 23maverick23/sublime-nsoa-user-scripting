@@ -3,7 +3,9 @@
     <content><![CDATA[
 function ${1:useCamelCase}(type) {
     try {
+
         $0
+
     } catch(e) {
         NSOA.meta.log('error', 'Try/catch error: ' + e);
     }
