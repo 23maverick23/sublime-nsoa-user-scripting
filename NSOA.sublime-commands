@@ -20,10 +20,6 @@
         "command": "nsoa_open_scripting_guide"
     },
     {
-        "caption": "NSOA: Open User Settings",
-        "command": "nsoa_open_user_settings"
-    },
-    {
         "caption": "NSOA: Remove All WSDL Data",
         "command": "nsoa_remove_wsdl_data"
     }

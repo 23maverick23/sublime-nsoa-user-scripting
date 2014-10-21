@@ -77,7 +77,6 @@ What's Included
 - NSOA: Open Quick Reference Card
 - NSOA: Open SOAP API Guide
 - NSOA: Open User Scripting Guide
-- NSOA: Open User Settings
 - NSOA: Remove All WSDL Data
 
 ### Completions (Default)

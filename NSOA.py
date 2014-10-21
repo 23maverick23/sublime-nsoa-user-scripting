@@ -2,7 +2,6 @@ from datetime import datetime
 import json
 import os
 import re
-import shutil
 import xml.etree.ElementTree as ET
 import webbrowser
 
@@ -42,18 +41,13 @@ class NsoaGenerateWsdlBase(sublime_plugin.WindowCommand):
         """
         try:
             file_path = os.path.join(*path_list)
-            # location if installed via package manager
-            installed_packages_path = os.path.join(sublime.installed_packages_path(), file_path)
             # location if added manually to sublime text
             packages_path = os.path.join(sublime.packages_path(), file_path)
 
             if sublime.platform() == 'windows':
-                installed_packages_path = installed_packages_path.replace('\\', '/')
                 packages_path = packages_path.replace('\\', '/')
 
-            if os.path.exists(installed_packages_path):
-                return installed_packages_path
-            elif os.path.exists(packages_path):
+            if os.path.exists(packages_path):
                 return packages_path
             else:
                 sublime.error_message("Unable to find '{0}' in your Sublime packages directory.".format(file_path))
@@ -67,7 +61,7 @@ class NsoaGenerateWsdlBase(sublime_plugin.WindowCommand):
         A helper class for managing the context menu depth.
 
         """
-        return context_dict[1]['children'][5]
+        return context_dict[1]['children'][3]
 
     def validate_url(self, url):
         """
@@ -356,21 +350,6 @@ class NsoaRemoveWsdlData(NsoaGenerateWsdlBase):
         btn_text = 'Remove all WSDL data'
         if sublime.ok_cancel_dialog(dialog_msg, btn_text):
             self.remove_wsdl()
-
-
-class NsoaOpenUserSettings(NsoaGenerateWsdlBase):
-    """
-    A Sublime window command for opening the User/NSOA.sublime-settings file.
-
-    """
-    def run(self):
-        user_settings_path = os.path.join(sublime.packages_path(), 'User', 'NSOA.sublime-settings')
-
-        if not os.path.exists(user_settings_path):
-            settings_path_list = ['NSOA', 'NSOA.sublime-settings']
-            default_settings_path = self.get_package_file_path(settings_path_list)
-            shutil.copy(default_settings_path, user_settings_path)
-        sublime.active_window().open_file(user_settings_path)
 
 
 class NsoaOpenDocumentationBase(sublime_plugin.WindowCommand):

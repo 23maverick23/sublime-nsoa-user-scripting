@@ -1,1 +1,61 @@
-[{"caption": "-", "id": "nsoa-context-separator-top"}, {"caption": "NSOA", "children": [{"caption": "Open user settings", "command": "nsoa_open_user_settings", "id": "nsoa-context-user-settings"}, {"caption": "-", "id": "nsoa-subcontext-separator-top"}, {"caption": "Load generic WSDL", "command": "nsoa_load_generic_wsdl", "id": "nsoa-context-command-generic"}, {"caption": "Load account-specific WSDL", "command": "nsoa_load_account_wsdl", "id": "nsoa-context-command-account"}, {"caption": "-", "id": "nsoa-subcontext-separator-middle"}, {"caption": "View WSDL content...", "children": [], "id": "nsoa-context-wsdl"}, {"caption": "View documentation...", "children": [{"caption": "SOAP API Guide", "command": "nsoa_open_soap_guide"}, {"caption": "User Scripting Guide", "command": "nsoa_open_scripting_guide"}, {"caption": "Quick Reference Card", "command": "nsoa_open_scripting_reference"}], "id": "nsoa-context-guides"}, {"caption": "-", "id": "nsoa-subcontext-separator-bottom"}, {"caption": "Remove all WSDL data", "command": "nsoa_remove_wsdl_data"}], "id": "nsoa-context-main"}, {"caption": "-", "id": "nsoa-context-separator-bottom"}]
+[
+    {
+        "caption": "-",
+        "id": "nsoa-context-separator-top"
+    },
+    {
+        "caption": "NSOA",
+        "children": [
+            {
+                "caption": "Load generic WSDL",
+                "command": "nsoa_load_generic_wsdl",
+                "id": "nsoa-context-command-generic"
+            },
+            {
+                "caption": "Load account-specific WSDL",
+                "command": "nsoa_load_account_wsdl",
+                "id": "nsoa-context-command-account"
+            },
+            {
+                "caption": "-",
+                "id": "nsoa-subcontext-separator-middle"
+            },
+            {
+                "caption": "View WSDL content...",
+                "children": [],
+                "id": "nsoa-context-wsdl"
+            },
+            {
+                "caption": "View documentation...",
+                "children": [
+                    {
+                        "caption": "SOAP API Guide",
+                        "command": "nsoa_open_soap_guide"
+                    },
+                    {
+                        "caption": "User Scripting Guide",
+                        "command": "nsoa_open_scripting_guide"
+                    },
+                    {
+                        "caption": "Quick Reference Card",
+                        "command": "nsoa_open_scripting_reference"
+                    }
+                ],
+                "id": "nsoa-context-guides"
+            },
+            {
+                "caption": "-",
+                "id": "nsoa-subcontext-separator-bottom"
+            },
+            {
+                "caption": "Remove all WSDL data",
+                "command": "nsoa_remove_wsdl_data"
+            }
+        ],
+        "id": "nsoa-context-main"
+    },
+    {
+        "caption": "-",
+        "id": "nsoa-context-separator-bottom"
+    }
+]

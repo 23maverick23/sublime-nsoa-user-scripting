@@ -1,6 +1,11 @@
 sublime-nsoa-user-scripting changelog
 =====================================
 
+## v2.0.2 (2014-10-20)
+
+- Fixes issue #4 (unresolved bug with packages directory lookup)
+- Removed "Open User Settings" command
+
 ## v2.0.1 (2014-10-19)
 
 - Fixes issue #4 (bug with packages directory lookup)
