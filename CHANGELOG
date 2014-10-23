@@ -1,6 +1,12 @@
 sublime-nsoa-user-scripting changelog
 =====================================
 
+## v2.1.0
+
+- Fixes issue #6 (updating package files fails)
+- Re-write of entire context menu/completions code
+- Small code optimizations
+
 ## v2.0.2 (2014-10-20)
 
 - Fixes issue #4 (unresolved bug with packages directory lookup)

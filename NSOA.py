@@ -1,4 +1,5 @@
 from datetime import datetime
+import itertools
 import json
 import os
 import re
@@ -14,7 +15,7 @@ import sublime
 import sublime_plugin
 
 
-## ----------------------------- GLOBAL CONSTANTS ---------------------------------------------------- ##
+## ----------------------------- GLOBAL CONSTANTS ----------------------------------------------- ##
 ST3 = sublime.version() >= '3000'
 
 DEFAULT_WSDL_URL = 'http://www.openair.com/wsdl.pl?wsdl'
@@ -23,7 +24,50 @@ XML_XS = '{http://www.w3.org/2001/XMLSchema}'
 SOAP_GUIDE_URL = 'http://www.openair.com/download/NetSuiteOpenAirSOAPAPIGuide.pdf'
 SCRIPTING_GUIDE_URL = 'http://www.openair.com/download/NetSuiteOpenAirUserScriptingGuide.pdf'
 SCRIPTING_REFERENCE_URL = 'http://www.openair.com/download/NetSuiteOpenAirUserScriptingReferenceCard.pdf'
-## --------------------------------------------------------------------------------------------------- ##
+
+## ----------------------------- CONTEXT MENU DEFAULTS ------------------------------------------ ##
+
+CONTEXT_MENU_DEFAULT = '''
+[
+    {
+        "caption": "NSOA",
+        "id": "nsoa-context-main",
+        "children": [
+            {
+                "caption": "View WSDL Data...",
+                "id": "nsoa-context-special",
+                "children": []
+            }
+        ]
+    }
+]
+'''
+
+CONTEXT_MENU_DEFAULT_OLD = '''
+[
+    {
+        "caption": "-",
+        "id": "nsoa-context-separator-top"
+    },
+    {
+        "caption": "NSOA",
+        "id": "nsoa-context-main",
+        "children": [
+            {
+                "caption": "View WSDL content...",
+                "id": "nsoa-context-wsdl",
+                "children": []
+            }
+        ]
+    },
+    {
+        "caption": "-",
+        "id": "nsoa-context-separator-bottom"
+    }
+]
+'''
+
+## ---------------------------------------------------------------------------------------------- ##
 
 
 class NsoaGenerateWsdlBase(sublime_plugin.WindowCommand):
@@ -56,13 +100,6 @@ class NsoaGenerateWsdlBase(sublime_plugin.WindowCommand):
             print(e)
             return None
 
-    def get_context_menu_depth(self, context_dict):
-        """
-        A helper class for managing the context menu depth.
-
-        """
-        return context_dict[1]['children'][3]
-
     def validate_url(self, url):
         """
         Validates the url against knows URL configurations
@@ -71,7 +108,11 @@ class NsoaGenerateWsdlBase(sublime_plugin.WindowCommand):
         """
         status = []
         try:
-            p = re.compile('^(?P<protocol>http(?:s)?)://(?P<subdomain>www|sandbox|demo|qa)\.openair(?:1)?\.com(?:\:)?(?P<port>\d+)?(?:|\/)/(?:wsdl\.pl\?)?(?P<wsdl>wsdl|\w+)?$', re.MULTILINE)
+            p = re.compile('^(?P<protocol>http(?:s)?)://'                   # match protocol
+                           '(?P<subdomain>www|sandbox|demo|qa)'             # match subdomain
+                           '\.openair(?:1)?\.com(?:\:)?(?P<port>\d+)?'      # match domain/port
+                           '(?:|\/)/(?:wsdl\.pl\?)?(?P<wsdl>wsdl|\w+)?$',   # match url end
+                           re.MULTILINE)
             m = re.match(p, url)
             s = {}
             s['code'] = 0 if m else 1
@@ -104,36 +145,67 @@ class NsoaGenerateWsdlBase(sublime_plugin.WindowCommand):
 
         """
         settings = sublime.load_settings('NSOA.sublime-settings')
-        context_path_list = ['NSOA', 'Context.sublime-menu']
-        context_path = self.get_package_file_path(context_path_list)
+        # NOTE: Moving the context menu to the User directory
+        context_path_list = ['User', 'NSOA', 'Context.sublime-menu']
+        # context_path = self.get_package_file_path(context_path_list)
+        context_path = os.path.join(sublime.packages_path(), os.path.join(*context_path_list))
 
-        with open(context_path, 'r') as f:
-            sublime_context = json.loads(f.read())
+        if not os.path.exists(os.path.dirname(context_path)):
+            os.makedirs(os.path.dirname(context_path))
 
+        sublime_context_json = json.loads(CONTEXT_MENU_DEFAULT)
         wsdl_json = json.loads(settings.get('wsdl_json'))
-        count = 0
 
         # the last array index should match the 'nsoa-context-wsdl' context item
-        context_root = self.get_context_menu_depth(sublime_context)
+        context_root = sublime_context_json[0]['children'][0]
         del context_root['children'][:]
 
+        # First Iteration: create alphabetized menu
+        alpha_set = set()
+        alpha_list = []
         for complexname in wsdl_json:
+            alpha_set.add(complexname[2])
+            alpha_list.append(complexname)
+
+        alpha_set_sorted = self.sort_list(alpha_set)
+        alpha_list_sorted = self.sort_list(alpha_list)
+        alpha_set_keys = {}
+        alpha_list_keys = {}
+
+        for num, letter in enumerate(alpha_set_sorted):
+            context_alpha = {"caption": "{0}".format(letter), "children": []}
+            context_root['children'].append(context_alpha)
+            alpha_set_keys[letter] = num
+
+        for k, g in itertools.groupby(alpha_list_sorted, key=lambda x: x[2]):
+            alpha_list_keys[k] = {key: value for (value, key) in enumerate(list(g))}
+
+        # Second Interation: add complex types and fields
+        for complexname in alpha_list_sorted:
+            _lvl = alpha_set_keys[complexname[2]]  # get list position of letter in menu
+            _lvl2 = alpha_list_keys[complexname[2]][complexname]  # get position of complex type in letter in menu
+
             context_type = {"caption": "{0}".format(complexname), "children": []}
-            context_root['children'].append(context_type)
+            context_root['children'][_lvl]['children'].append(context_type)
+
+        # Second Interation: add complex types and fields
+        for complexname in wsdl_json:
+            _lvl = alpha_set_keys[complexname[2]]  # get list position of letter in menu
+            # context_root['children'][_lvl]['children'].append(context_type)
+
+            _lvl2 = alpha_list_keys[complexname[2]][complexname]  # get position of complex type in letter in menu
 
             for field in wsdl_json[complexname]:
                 context_field = {"caption": "{0}".format(field), "command": "nsoa_insert_field", "args": {"field": "{0}".format(field)}}
-                context_root['children'][count]['children'].append(context_field)
+                context_root['children'][_lvl]['children'][_lvl2]['children'].append(context_field)
 
-            count += 1
-
-        context_root['children'] = self.sort_list_dict(
-            context_root['children'],
-            'caption'
-        )
+        for num, letter in enumerate(context_root['children']):
+            self.sort_list(
+                context_root['children'][num]
+            )
 
         with open(context_path, 'w') as f:
-            json.dump(sublime_context, f)
+            json.dump(sublime_context_json, f)
 
         # INFO: This is a workaround to reload the plugin after the context menu is changed.
         sublime.save_settings('NSOA.sublime-settings')
@@ -144,7 +216,7 @@ class NsoaGenerateWsdlBase(sublime_plugin.WindowCommand):
         Create a list of completions using WSDL settings.
 
         """
-        sublime_completions = {"scope": "source.js.nsoa"}
+        sublime_completions_json = {"scope": "source.js.nsoa"}
 
         settings = sublime.load_settings('NSOA.sublime-settings')
         wsdl_json = json.loads(settings.get('wsdl_json'))
@@ -169,13 +241,16 @@ class NsoaGenerateWsdlBase(sublime_plugin.WindowCommand):
             fcompletion['contents'] = f
             completions.append(fcompletion)
 
-        sublime_completions['completions'] = completions
+        sublime_completions_json['completions'] = completions
 
-        completions_path_list = ['NSOA', 'completions', 'Wsdl.sublime-completions']
-        completions_path = self.get_package_file_path(completions_path_list)
+        completions_path_list = ['User', 'NSOA', 'Wsdl.sublime-completions']
+        completions_path = os.path.join(sublime.packages_path(), os.path.join(*completions_path_list))
+
+        if not os.path.exists(os.path.dirname(completions_path)):
+            os.makedirs(os.path.dirname(completions_path))
 
         with open(completions_path, 'w') as f:
-            json.dump(sublime_completions, f)
+            json.dump(sublime_completions_json, f)
 
         sublime.status_message('NSOA: Completions list updated.')
 
@@ -208,18 +283,18 @@ class NsoaGenerateWsdlBase(sublime_plugin.WindowCommand):
         json_data = json.dumps(library, sort_keys=True)
 
         settings = sublime.load_settings('NSOA.sublime-settings')
-        if settings.has('wsdl_url'):
-            settings.erase('wsdl_url')
+        if settings.has('wsdl_json'):
+            settings.erase('wsdl_json')
         settings.set('wsdl_json', json_data)
 
         d = datetime.utcnow()
         dt = d.strftime('%A, %d %b %Y at %I:%M:%S %p (UTC)')
         settings.set('wsdl_last_updated', dt)
 
-        sublime.save_settings('NSOA.sublime-settings')
-
         self.create_context_menu()
         self.create_completions_list()
+
+        sublime.save_settings('NSOA.sublime-settings')
 
         sublime.status_message('NSOA: WSDL data updated on {0}.'.format(dt))
 
@@ -230,25 +305,19 @@ class NsoaGenerateWsdlBase(sublime_plugin.WindowCommand):
 
         """
         # Remove WSDL objects and fields from completions...
-        completions_path_list = ['NSOA', 'completions', 'Wsdl.sublime-completions']
-        completions_path = self.get_package_file_path(completions_path_list)
+        # TODO: Update this with logic to support checking for file
+        completions_path_list = ['User', 'NSOA', 'Wsdl.sublime-completions']
+        completions_path = os.path.join(sublime.packages_path(), os.path.join(*completions_path_list))
 
-        with open(completions_path, 'w') as f:
-            json.dump({}, f)
+        if os.path.exists(completions_path):
+            os.remove(completions_path)
 
         # Remove WSDL objects and fields context menu...
-        context_path_list = ['NSOA', 'Context.sublime-menu']
-        context_path = self.get_package_file_path(context_path_list)
+        context_path_list = ['User', 'NSOA', 'Context.sublime-menu']
+        context_path = os.path.join(sublime.packages_path(), os.path.join(*context_path_list))
 
-        with open(context_path, 'r') as f:
-            sublime_context = json.loads(f.read())
-
-        # the last array index should match the 'nsoa-context-wsdl' context item
-        context_root = self.get_context_menu_depth(sublime_context)
-        del context_root['children'][:]
-
-        with open(context_path, 'w') as f:
-            json.dump(sublime_context, f)
+        if os.path.exists(context_path):
+            os.remove(context_path)
 
         # Remove WSDL objects and fields from settings
         settings = sublime.load_settings('NSOA.sublime-settings')

@@ -5,28 +5,33 @@
     },
     {
         "caption": "NSOA",
+        "id": "nsoa-context-main",
         "children": [
             {
-                "caption": "Load generic WSDL",
-                "command": "nsoa_load_generic_wsdl",
-                "id": "nsoa-context-command-generic"
+                "caption": "View Commands...",
+                "id": "nsoa-context-commands",
+                "children": [
+                    {
+                        "caption": "Load Generic WSDL",
+                        "command": "nsoa_load_generic_wsdl"
+                    },
+                    {
+                        "caption": "Load Account-Specific WSDL",
+                        "command": "nsoa_load_account_wsdl"
+                    },
+                    {
+                        "caption": "-",
+                        "id": "nsoa-context-commands-separater"
+                    },
+                    {
+                        "caption": "Remove All WSDL Data",
+                        "command": "nsoa_remove_wsdl_data"
+                    }
+                ]
             },
             {
-                "caption": "Load account-specific WSDL",
-                "command": "nsoa_load_account_wsdl",
-                "id": "nsoa-context-command-account"
-            },
-            {
-                "caption": "-",
-                "id": "nsoa-subcontext-separator-middle"
-            },
-            {
-                "caption": "View WSDL content...",
-                "children": [],
-                "id": "nsoa-context-wsdl"
-            },
-            {
-                "caption": "View documentation...",
+                "caption": "View Documentation...",
+                "id": "nsoa-context-docs",
                 "children": [
                     {
                         "caption": "SOAP API Guide",
@@ -40,19 +45,9 @@
                         "caption": "Quick Reference Card",
                         "command": "nsoa_open_scripting_reference"
                     }
-                ],
-                "id": "nsoa-context-guides"
-            },
-            {
-                "caption": "-",
-                "id": "nsoa-subcontext-separator-bottom"
-            },
-            {
-                "caption": "Remove all WSDL data",
-                "command": "nsoa_remove_wsdl_data"
+                ]
             }
-        ],
-        "id": "nsoa-context-main"
+        ]
     },
     {
         "caption": "-",
