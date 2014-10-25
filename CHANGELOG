@@ -1,6 +1,10 @@
 sublime-nsoa-user-scripting changelog
 =====================================
 
+## v2.1.1
+
+- Updated screenshots
+
 ## v2.1.0
 
 - Fixes issue #6 (updating package files fails)

@@ -48,17 +48,17 @@ What's Included
 
 ### Screenshots
 
-#### Command Palatte
-![nsoa_command_palette.png](https://bitbucket.org/rmorrissey23/sublime-nsoa-user-scripting/raw/master/screenshots/nsoa_command_palette.png "sublime-nsoa-user-scripting")
+#### Quick Tour: Commands
+![nsoa_commands.gif](https://bitbucket.org/rmorrissey23/sublime-nsoa-user-scripting/raw/master/screenshots/nsoa_commands.gif "sublime-nsoa-user-scripting")
 
-#### Quick Tour: Basics
-![nsoa_quick_tour_1.gif](https://bitbucket.org/rmorrissey23/sublime-nsoa-user-scripting/raw/master/screenshots/nsoa_quick_tour_1.gif "sublime-nsoa-user-scripting")
-
-#### Quick Tour: Context Menu
-![nsoa_quick_tour_2.gif](https://bitbucket.org/rmorrissey23/sublime-nsoa-user-scripting/raw/master/screenshots/nsoa_quick_tour_2.gif "sublime-nsoa-user-scripting")
+#### Quick Tour: Completions
+![nsoa_completions.gif](https://bitbucket.org/rmorrissey23/sublime-nsoa-user-scripting/raw/master/screenshots/nsoa_completions.gif "sublime-nsoa-user-scripting")
 
 #### Quick Tour: Account-Specific WSDL
-![nsoa_quick_tour_3.gif](https://bitbucket.org/rmorrissey23/sublime-nsoa-user-scripting/raw/master/screenshots/nsoa_quick_tour_3.gif "sublime-nsoa-user-scripting")
+![nsoa_account.gif](https://bitbucket.org/rmorrissey23/sublime-nsoa-user-scripting/raw/master/screenshots/nsoa_account.gif "sublime-nsoa-user-scripting")
+
+#### Quick Tour: Context Menu
+![nsoa_context.gif](https://bitbucket.org/rmorrissey23/sublime-nsoa-user-scripting/raw/master/screenshots/nsoa_context.gif "sublime-nsoa-user-scripting")
 
 > Theme: [Centurion](https://sublime.wbond.net/packages/Theme%20-%20Centurion)
 
